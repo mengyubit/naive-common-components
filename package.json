@@ -1,0 +1,34 @@
+{
+  "name": "naive-common-components",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "npx only-allow pnpm",
+    "clean": "pnpm run clean:dist && pnpm run clean --filter ./packages/ --stream",
+    "clean:dist": "rimraf dist",
+    "dev:demo": "pnpm -F guide dev",
+    "build:demo": "pnpm -F guide build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mengyubit/naive-common-components.git"
+  },
+  "keywords": [
+    "naive",
+    "dynamic",
+    "form"
+  ],
+  "author": "mengyu.lu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mengyubit/naive-common-components/issues"
+  },
+  "homepage": "https://github.com/mengyubit/naive-common-components#readme",
+  "dependencies": {
+    "typescript": "4.8.4",
+    "vue": "3.2.41"
+  }
+}

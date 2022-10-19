@@ -1,0 +1,39 @@
+.v-step {
+  position: fixed;
+  right: 400px;
+  left: 340px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background: #fff;
+
+  &__content {
+    flex: 1;
+  }
+}
+
+.v-step__target {
+  position: fixed;
+  margin-top: -16px;
+  margin-left: -16px;
+  padding: 4px;
+  border-radius: 31px;
+  background: rgba(255, 255, 255, 0.25);
+
+  &-inner {
+    padding: 12px;
+    border-radius: 31px;
+    background: #fff;
+    opacity: 0.1;
+  }
+}
+
+.v-step__arrow {
+  position: fixed;
+
+  &__image {
+    width: 140px;
+    height: 140px;
+  }
+}
