@@ -1,7 +1,9 @@
+.step {
+  position: relative;
+}
+
 .v-step {
-  position: fixed;
-  right: 400px;
-  left: 340px;
+  position: absolute;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -14,9 +16,7 @@
 }
 
 .v-step__target {
-  position: fixed;
-  margin-top: -16px;
-  margin-left: -16px;
+  position: absolute;
   padding: 4px;
   border-radius: 31px;
   background: rgba(255, 255, 255, 0.25);
@@ -25,13 +25,11 @@
     padding: 12px;
     border-radius: 31px;
     background: #fff;
-    opacity: 0.1;
   }
 }
 
 .v-step__arrow {
-  position: fixed;
-
+  position: absolute;
   &__image {
     width: 140px;
     height: 140px;

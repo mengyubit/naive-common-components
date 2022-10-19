@@ -5,10 +5,13 @@ import {
   getViewOffset,
   calcArrowViewOffset,
   calcDialogViewOffset,
-  getMergedArrowStyle
+  getMergedArrowStyle,
+  calcTargetViewOffset
 } from "../utils"
 import { IStep } from "../interface"
 import "./step.scss"
+import { createPopper } from '@popperjs/core'
+
 
 export default defineComponent({
   name: "VStep",
@@ -36,6 +39,17 @@ export default defineComponent({
       }
     )
 
+    const dialogRef = ref()
+    const targetElement = ref()
+
+    onMounted(() => {
+      console.log()
+      createPopper(
+        targetElement.value,
+        dialogRef.value,
+      )
+    })
+
     return () => {
       const {
         cancelText = "skip",
@@ -62,6 +76,7 @@ export default defineComponent({
       const currentNode: HTMLElement | null = getNodeBySelector(
         target
       ) as HTMLElement | null
+      targetElement.value = currentNode
       const anchorInfo = getViewOffset(currentNode)
       const { left, top } = anchorInfo || {}
       const arrowPosition = calcArrowViewOffset(props.step, anchorInfo)
@@ -70,8 +85,12 @@ export default defineComponent({
         left: "auto",
         top: "auto"
       }
+      const targetPosition = calcTargetViewOffset(props.step, anchorInfo) || {
+        left: "auto",
+        top: "auto"
+      }
       return (
-        <>
+        <div class="step" ref={dialogRef}>
           <div
             class="v-step"
             style={{
@@ -106,9 +125,8 @@ export default defineComponent({
           {renderTarget ? (
             <div
               style={{
-                position: "fixed",
-                left: `${left || "auto"}px`,
-                top: `${top || "auto"}px`,
+                left: `${targetPosition.left}px`,
+                top: `${targetPosition.top}px`,
                 ...targetStyle
               }}
             >
@@ -118,8 +136,8 @@ export default defineComponent({
             <div
               class="v-step__target"
               style={{
-                left: `${left || "auto"}px`,
-                top: `${top || "auto"}px`,
+                left: `${targetPosition.left}px`,
+                top: `${targetPosition.top }px`,
                 ...targetStyle
               }}
             >
@@ -143,7 +161,7 @@ export default defineComponent({
               <img src={arrowImageUrl} class="step__arrow__image" />
             </div>
           )}
-        </>
+        </div>
       )
     }
   }

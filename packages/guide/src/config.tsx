@@ -59,7 +59,7 @@ const basicStepConfig = {
     height: "156px"
   },
   arrowExtraInfo: {
-    offsetX: 24,
+    offsetX: 8,
     offsetY: 16
   }
 }
@@ -67,7 +67,41 @@ const basicStepConfig = {
 export const steps: IStep[] = [
   {
     ...basicStepConfig,
+    index: 0,
     arrowDirection: "RIGHT_TOP",
+    target: "#guide__create-component",
+
+    content: renderContent(
+      1,
+      `if you want to deploy a backend service, please create at least one component here.`
+    )
+  },
+  {
+    ...basicStepConfig,
+    index: 0,
+    arrowDirection: "RIGHT_BOTTOM",
+    target: "#guide__create-component",
+
+    content: renderContent(
+      1,
+      `if you want to deploy a backend service, please create at least one component here.`
+    )
+  },
+  {
+    ...basicStepConfig,
+    index: 0,
+    arrowDirection: "LEFT_BOTTOM",
+    target: "#guide__create-component",
+
+    content: renderContent(
+      1,
+      `if you want to deploy a backend service, please create at least one component here.`
+    )
+  },
+  {
+    ...basicStepConfig,
+    index: 0,
+    arrowDirection: "LEFT_TOP",
     target: "#guide__create-component",
 
     content: renderContent(

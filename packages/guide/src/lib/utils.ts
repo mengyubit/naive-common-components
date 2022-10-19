@@ -40,6 +40,28 @@ export const getViewOffset: (
     height: element.offsetHeight
   }
 }
+// 计算高亮的target的位置
+export const calcTargetViewOffset = (step: IStep,
+  anchorInfo: null | ElementInfo) => {
+    if (!anchorInfo) {
+      return null
+    }
+    
+    const {  height: targetHeight, width: targetWidth } = anchorInfo
+    const { width = 0, height = 0 } = step.arrowImageStyle || {}
+    const arrowWidth = parseInt(width, 10)
+    const arrowHeight = parseInt(height, 10)
+    const leftPosition  = -targetWidth / 2
+    const topPosition =  -targetHeight
+    const offsetY= step.arrowExtraInfo?.offsetY || 0
+
+    return {
+      left: leftPosition - offsetY,
+      top: topPosition - offsetY,
+      width: arrowWidth,
+      height: arrowHeight
+    }
+  }
 
 // 计算arrow 在 view中的位置
 export const calcArrowViewOffset = (
@@ -50,7 +72,7 @@ export const calcArrowViewOffset = (
     return null
   }
 
-  const { left, top, height: targetHeight, width: targetWidth } = anchorInfo
+  const {  height: targetHeight } = anchorInfo
   const { width = 0, height = 0 } = step.arrowImageStyle || {}
   const { arrowDirection = EArrowDirection.RIGHT_TOP, arrowExtraInfo } = step
   const arrowWidth = parseInt(width, 10)
@@ -58,8 +80,8 @@ export const calcArrowViewOffset = (
 
   switch (arrowDirection) {
     case EArrowDirection.RIGHT_TOP: {
-      const leftPosition = left - arrowWidth / 2
-      const topPosition = top + targetHeight
+      const leftPosition = -arrowWidth
+      const topPosition =  0
       return {
         left: leftPosition + (arrowExtraInfo?.offsetX || 0),
         top: topPosition + (arrowExtraInfo?.offsetY || 0),
@@ -69,22 +91,22 @@ export const calcArrowViewOffset = (
     }
 
     case EArrowDirection.RIGHT_BOTTOM: {
-      const leftPosition = left - arrowWidth / 2
-      const topPosition = top - arrowHeight
+      const leftPosition = -arrowWidth
+      const topPosition = -arrowHeight - targetHeight
 
       return {
         left: leftPosition + (arrowExtraInfo?.offsetX || 0),
-        top: topPosition + (arrowExtraInfo?.offsetY || 0),
+        top: topPosition - (arrowExtraInfo?.offsetY || 0),
         width: arrowWidth,
         height: arrowHeight
       }
     }
 
     case EArrowDirection.LEFT_TOP: {
-      const leftPosition = left + targetWidth / 2
-      const topPosition = top + targetHeight
+      const leftPosition =  0
+      const topPosition =  0
       return {
-        left: leftPosition + (arrowExtraInfo?.offsetX || 0),
+        left: leftPosition - (arrowExtraInfo?.offsetX || 0),
         top: topPosition + (arrowExtraInfo?.offsetY || 0),
         width: arrowWidth,
         height: arrowHeight
@@ -92,11 +114,11 @@ export const calcArrowViewOffset = (
     }
 
     case EArrowDirection.LEFT_BOTTOM: {
-      const leftPosition = left + arrowWidth / 2
-      const topPosition = top - arrowHeight
+      const leftPosition = 0
+      const topPosition = -arrowHeight - targetHeight
       return {
-        left: leftPosition + (arrowExtraInfo?.offsetX || 0),
-        top: topPosition + (arrowExtraInfo?.offsetY || 0),
+        left: leftPosition - (arrowExtraInfo?.offsetX || 0),
+        top: topPosition - (arrowExtraInfo?.offsetY || 0),
         width: arrowWidth,
         height: arrowHeight
       }
@@ -133,7 +155,7 @@ export const calcDialogViewOffset = (
 
     case EArrowDirection.RIGHT_BOTTOM: {
       const leftPosition = left - dialogWidth
-      const topPosition = top - targetHeight / 2
+      const topPosition = top - targetHeight
 
       return {
         left: leftPosition,

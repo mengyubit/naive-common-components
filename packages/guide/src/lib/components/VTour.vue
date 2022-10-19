@@ -38,7 +38,7 @@ const start = () => {
   isStart.value = true
   setTimeout(() => {
     startNextStepBeforeAction()
-  }, 5000)
+  }, 2000)
 }
 
 const stop = () => {

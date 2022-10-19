@@ -19,10 +19,7 @@ export type ArrowDirection =
   | "RIGHT_BOTTOM"
   | "LEFT_TOP"
   | "LEFT_BOTTOM"
-  | "TOP_RIGHT"
-  | "TOP_LEFT"
-  | "BOTTOM_RIGHT"
-  | "BOTTOM_LEFT"
+  
 
 export interface IStep {
   target: string
@@ -31,7 +28,7 @@ export interface IStep {
   targetInnerStyle?: CSSProperties
   header?: string | VNode
   content?: string | VNode
-
+  index: number;
   confirmText?: string
   cancelText?: string
   confirmAction?: () => Promise<StepStatus>
