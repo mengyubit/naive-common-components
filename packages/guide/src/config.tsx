@@ -67,7 +67,6 @@ const basicStepConfig = {
 export const steps: IStep[] = [
   {
     ...basicStepConfig,
-    index: 0,
     arrowDirection: "RIGHT_TOP",
     target: "#guide__create-component",
 
@@ -78,34 +77,31 @@ export const steps: IStep[] = [
   },
   {
     ...basicStepConfig,
-    index: 0,
     arrowDirection: "RIGHT_BOTTOM",
     target: "#guide__create-component",
 
     content: renderContent(
-      1,
+      2,
       `if you want to deploy a backend service, please create at least one component here.`
     )
   },
   {
     ...basicStepConfig,
-    index: 0,
     arrowDirection: "LEFT_BOTTOM",
     target: "#guide__create-component",
 
     content: renderContent(
-      1,
+      3,
       `if you want to deploy a backend service, please create at least one component here.`
     )
   },
   {
     ...basicStepConfig,
-    index: 0,
     arrowDirection: "LEFT_TOP",
     target: "#guide__create-component",
 
     content: renderContent(
-      1,
+      4,
       `if you want to deploy a backend service, please create at least one component here.`
     )
   },

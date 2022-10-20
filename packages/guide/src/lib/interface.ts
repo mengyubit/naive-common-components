@@ -1,17 +1,13 @@
 import { ButtonProps } from "naive-ui"
 import { CSSProperties, VNode } from "vue"
 
-export type StepStatus = "NEXT" | "SKIP" | "FINISH"
+export type StepStatus = "PREV" | "NEXT" | "SKIP" | "FINISH"
 
 export enum EArrowDirection {
   "RIGHT_TOP" = "RIGHT_TOP",
   "RIGHT_BOTTOM" = "RIGHT_BOTTOM",
   "LEFT_TOP" = "LEFT_TOP",
   "LEFT_BOTTOM" = "LEFT_BOTTOM",
-  "TOP_RIGHT" = "TOP_RIGHT",
-  "TOP_LEFT" = "TOP_LEFT",
-  "BOTTOM_RIGHT" = "BOTTOM_RIGHT",
-  "BOTTOM_LEFT" = "BOTTOM_LEFT"
 }
 
 export type ArrowDirection =
@@ -28,7 +24,6 @@ export interface IStep {
   targetInnerStyle?: CSSProperties
   header?: string | VNode
   content?: string | VNode
-  index: number;
   confirmText?: string
   cancelText?: string
   confirmAction?: () => Promise<StepStatus>

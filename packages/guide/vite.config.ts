@@ -22,18 +22,17 @@ export default defineConfig({
  
   build: {
     target: "es2015",
-    outDir: 'dist',
+    outDir: 'dist/lib',
     lib: {
-      entry: path.resolve(__dirname, './src/index.ts'),
+      entry: path.resolve(__dirname, './src/lib/index.ts'),
       name: '@naive-common-ui/guide'
     },
     rollupOptions: {
-      external: ['vue', 'naive-ui', 'vue-router'],
+      external: ['vue', 'naive-ui'],
       output: {
         globals: {
           vue: 'Vue',
           'naive-ui': 'naive',
-          'vue-router': 'VueRouter'
         }
       }
     }

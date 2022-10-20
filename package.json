@@ -9,8 +9,8 @@
     "preinstall": "npx only-allow pnpm",
     "clean": "pnpm run clean:dist && pnpm run clean --filter ./packages/ --stream",
     "clean:dist": "rimraf dist",
-    "dev:demo": "pnpm -F guide dev",
-    "build:demo": "pnpm -F guide build"
+    "dev:guide": "pnpm run -C packages/guide dev",
+    "build:guide": "pnpm run -C packages/guide build"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,7 @@
     "dynamic",
     "form"
   ],
-  "author": "mengyu.lu",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/mengyubit/naive-common-components/issues"
