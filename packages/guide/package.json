@@ -1,6 +1,5 @@
 {
   "name": "@naive-common-ui/guide",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
