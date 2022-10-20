@@ -9,6 +9,7 @@
     "preinstall": "npx only-allow pnpm",
     "clean": "pnpm run clean:dist && pnpm run clean --filter ./packages/ --stream",
     "clean:dist": "rimraf dist",
+    "typeCheck:guide": "pnpm run -C packages/guide typeCheck",
     "dev:guide": "pnpm run -C packages/guide dev",
     "build:guide": "pnpm run -C packages/guide build"
   },
@@ -28,6 +29,7 @@
   },
   "homepage": "https://github.com/mengyubit/naive-common-components#readme",
   "dependencies": {
+    "naive-ui": "^2.33.5",
     "typescript": "4.8.4",
     "vue": "3.2.41"
   }
