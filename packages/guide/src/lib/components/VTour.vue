@@ -22,6 +22,20 @@ const isStart = ref(false)
 const props = defineProps<{
   steps: IStep[]
 }>()
+const emits = defineEmits<{
+  (e: "finish", status: StepStatus): void
+}>()
+
+const startPrevStepBeforeAction = async () => {
+  const nextStepIndex = currentStepIndex.value - 1
+
+  const { beforeAction } = props.steps[nextStepIndex]
+  if (beforeAction) {
+    await beforeAction()
+  }
+
+  currentStepIndex.value = nextStepIndex
+}
 
 const startNextStepBeforeAction = async () => {
   const nextStepIndex = currentStepIndex.value + 1
@@ -38,7 +52,7 @@ const start = () => {
   isStart.value = true
   setTimeout(() => {
     startNextStepBeforeAction()
-  }, 2000)
+  }, 1000)
 }
 
 const stop = () => {
@@ -76,12 +90,21 @@ watch(
     if (!isStart.value) {
       return
     }
-
     const stepStatus = await waitingAction()
 
     if (stepStatus === "SKIP") {
       stop()
+      emits("finish", "SKIP")
       return
+    } else if (stepStatus === "PREV") {
+      if (currentIndex === 0) {
+        return
+      } else {
+        await nextTick()
+        // 开始上一步
+        await startPrevStepBeforeAction()
+        return
+      }
     }
 
     const { afterAction } = props.steps[currentIndex]
@@ -94,6 +117,7 @@ watch(
 
     if (currentIndex + 1 === props.steps.length) {
       stop()
+      emits("finish", "FINISH")
       return
     }
 

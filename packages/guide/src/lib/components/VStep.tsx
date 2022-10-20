@@ -1,5 +1,6 @@
 import { NButton, NSpace } from "naive-ui"
 import { CSSProperties } from "vue"
+import { createPopper } from "@popperjs/core"
 import {
   getNodeBySelector,
   getViewOffset,
@@ -10,8 +11,6 @@ import {
 } from "../utils"
 import { IStep } from "../interface"
 import "./step.scss"
-import { createPopper } from '@popperjs/core'
-
 
 export default defineComponent({
   name: "VStep",
@@ -43,11 +42,7 @@ export default defineComponent({
     const targetElement = ref()
 
     onMounted(() => {
-      console.log()
-      createPopper(
-        targetElement.value,
-        dialogRef.value,
-      )
+      createPopper(targetElement.value, dialogRef.value)
     })
 
     return () => {
@@ -77,15 +72,15 @@ export default defineComponent({
         target
       ) as HTMLElement | null
       targetElement.value = currentNode
-      const anchorInfo = getViewOffset(currentNode)
-      const { left, top } = anchorInfo || {}
-      const arrowPosition = calcArrowViewOffset(props.step, anchorInfo)
+
+      const targetInfo = getViewOffset(currentNode)
+      const arrowPosition = calcArrowViewOffset(props.step, targetInfo)
       const dialogPosition = (arrowPosition &&
         calcDialogViewOffset(props.step, arrowPosition)) || {
         left: "auto",
         top: "auto"
       }
-      const targetPosition = calcTargetViewOffset(props.step, anchorInfo) || {
+      const targetPosition = calcTargetViewOffset(props.step, targetInfo) || {
         left: "auto",
         top: "auto"
       }
@@ -137,7 +132,7 @@ export default defineComponent({
               class="v-step__target"
               style={{
                 left: `${targetPosition.left}px`,
-                top: `${targetPosition.top }px`,
+                top: `${targetPosition.top}px`,
                 ...targetStyle
               }}
             >

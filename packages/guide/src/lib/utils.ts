@@ -42,12 +42,12 @@ export const getViewOffset: (
 }
 // 计算高亮的target的位置
 export const calcTargetViewOffset = (step: IStep,
-  anchorInfo: null | ElementInfo) => {
-    if (!anchorInfo) {
+  targetInfo: null | ElementInfo) => {
+    if (!targetInfo) {
       return null
     }
     
-    const {  height: targetHeight, width: targetWidth } = anchorInfo
+    const {  height: targetHeight, width: targetWidth } = targetInfo
     const { width = 0, height = 0 } = step.arrowImageStyle || {}
     const arrowWidth = parseInt(width, 10)
     const arrowHeight = parseInt(height, 10)
@@ -66,13 +66,13 @@ export const calcTargetViewOffset = (step: IStep,
 // 计算arrow 在 view中的位置
 export const calcArrowViewOffset = (
   step: IStep,
-  anchorInfo: null | ElementInfo
+  targetInfo: null | ElementInfo
 ) => {
-  if (!anchorInfo) {
+  if (!targetInfo) {
     return null
   }
 
-  const {  height: targetHeight } = anchorInfo
+  const {  height: targetHeight } = targetInfo
   const { width = 0, height = 0 } = step.arrowImageStyle || {}
   const { arrowDirection = EArrowDirection.RIGHT_TOP, arrowExtraInfo } = step
   const arrowWidth = parseInt(width, 10)
@@ -191,6 +191,7 @@ export const calcDialogViewOffset = (
   }
 }
 
+// 箭头的样式，以 RIGHT_TOP的箭头为基准
 export const getMergedArrowStyle = (
   arrowStyle: CSSProperties,
   arrowDirection: ArrowDirection
