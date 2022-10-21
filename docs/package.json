@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "devDependencies": {
+    "@naive-ui-common/guide": "workspace:*"
+  },
+  "dependencies": {
+    "@popperjs/core": "2.11.6",
+    "sass": "1.55.0"
+  }
+}

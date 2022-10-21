@@ -25,7 +25,7 @@ export default defineConfig({
     outDir: 'dist/lib',
     lib: {
       entry: path.resolve(__dirname, './src/lib/index.ts'),
-      name: '@naive-common-ui/guide'
+      name: '@naive-ui-common/guide'
     },
     rollupOptions: {
       external: ['vue', 'naive-ui'],
