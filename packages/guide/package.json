@@ -16,6 +16,7 @@
   "files": [
     "dist"
   ],
+  "keywords": ["beginner's guide components", "naiveUI", "Vue3"],
   "author": "mengyubit",
   "license": "MIT",
   "peerDependencies": {
