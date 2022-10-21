@@ -1,8 +1,9 @@
 import DefaultTheme from 'vitepress/theme'
 import 'vitepress-theme-demoblock/theme/styles/index.css'
-import { VTour } from '@naive-ui-common/guide'
+import * as pkg from '@naive-ui-common/guide'
 import NaiveUi from 'naive-ui'
 import './index.scss'
+const VTour = pkg.VTour
 
 export default {
   ...DefaultTheme,

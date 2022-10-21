@@ -16,11 +16,13 @@
 </div>
 
 <script lang="ts" setup>
-import { NButton } from 'naive-ui';
-import { VTour, StepStatus, IStep } from "@naive-ui-common/guide"
+import * as naivePkg from 'naive-ui';
+import * as guidePkg from "@naive-ui-common/guide"
 import { onMounted, ref } from 'vue'
 import arrowUrl from "../assets/arrow.svg"
 import '@naive-ui-common/guide/dist/lib/style.css'
+const { NButton } = naivePkg;
+const { VTour, StepStatus, IStep } = guidePkg;
 
 const indexStyle = {
   display: "flex",

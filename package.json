@@ -14,6 +14,7 @@
     "build:guide": "pnpm run -C packages/guide build",
     "docs:dev": " vitepress dev docs",
     "docs:serve": "vitepress serve docs",
+    "docs:build": "vitepress build docs",
     "register:components": "vitepress-rc"
   },
   "repository": {
