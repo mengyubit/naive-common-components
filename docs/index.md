@@ -1,24 +1,25 @@
 ---
-home: true
-heroImage: /logo.svg
-actionText: Get Started
-actionLink: /guide/
+layout: home
 
-altActionText: Learn More
-altActionLink: /guide/
+hero:
+  name: Guide Component
+  text:  based on Vue3, NaiveUI
 
+  actions:
+    - theme: brand
+      text: Get Started
+      link: /guide/index
+    - theme: alt
+      text: View on GitHub
+      link: https://github.com/mengyubit/naive-common-components.git
 features:
-    - title: 💡 Instant Server Start
-      details: On demand file serving over native ESM, no bundling required!
-    - title: ⚡️ Lightning Fast HMR
-      details: Hot Module Replacement (HMR) that stays fast regardless of app size.
-    - title: 🛠️ Rich Features
-      details: Out-of-the-box support for TypeScript, JSX, CSS and more.
-    - title: 📦 Optimized Build
-      details: Pre-configured Rollup build with multi-page and library mode support.
-    - title: 🔩 Universal Plugins
-      details: Rollup-superset plugin interface shared between dev and build.
-    - title: 🔑 Fully Typed APIs
-      details: Flexible programmatic APIs with full TypeScript typing.
-footer: MIT Licensed | Copyright © 2021-present 君惜
+  - icon: ⚡️
+    title: Vite, The DX that can't be beat
+    details: Lorem ipsum...
+  - icon: 🖖
+    title: Power of Vue meets Markdown
+    details: Lorem ipsum...
+  - icon: 🛠️
+    title: Simple and minimal, always
+    details: Lorem ipsum...
 ---

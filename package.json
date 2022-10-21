@@ -32,6 +32,8 @@
   },
   "homepage": "https://github.com/mengyubit/naive-common-components#readme",
   "dependencies": {
+    "@naive-ui-common/guide": "link:packages/guide",
+    "docs": "^0.3.2-canary.0",
     "naive-ui": "^2.33.5",
     "typescript": "4.8.4",
     "vue": "3.2.41"
