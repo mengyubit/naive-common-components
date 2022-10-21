@@ -7,7 +7,7 @@
 <div>
   <div  class="test">
     <div class="start">
-     点击 start guide 按钮开始吧 ！
+     点击 start guide 按钮开始吧 !!!！
      <n-button @click="startGuide" type="info" ghost>start guide</n-button>
     </div>
     <n-button id="guide__create-component" type="primary" ghost>test button</n-button>
