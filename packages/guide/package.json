@@ -10,8 +10,8 @@
     "build": "rm -rf dist && vue-tsc --declaration --emitDeclarationOnly  && vite build",
     "preview": "vite preview"
   },
-  "main": "./dist/lib/guide.umd.js",
-  "module": "./dist/lib/guide.mjs",
+  "main": "./dist/lib/naive-ui-guide.umd.js",
+  "module": "./dist/lib/naive-ui-guide.mjs",
   "types": "./dist/types/lib/index.d.ts",
   "files": [
     "dist"
