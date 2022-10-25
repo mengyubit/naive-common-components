@@ -19,7 +19,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'pnpm'
     - name: Install dependencies
-      run: pnpm install
+      run: pnpm config set registry https://artifactory.tusen.ai/artifactory/api/npm/npm-infra-common/ && pnpm install
 
     - name: Build
       run: pnpm run docs:build -w
