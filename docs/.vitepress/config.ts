@@ -1,4 +1,4 @@
-const nav = require('./configs/nav')
+import nav  from './configs/nav'
 import { defineConfig } from 'vitepress'
 
 module.exports = defineConfig({

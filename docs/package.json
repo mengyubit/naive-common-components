@@ -2,7 +2,6 @@
   "private": true,
   "dependencies": {
     "@naive-ui-common/guide": "workspace:^0.1.0",
-    "@popperjs/core": "2.11.6",
     "sass": "1.55.0"
   }
 }
