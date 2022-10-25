@@ -2,7 +2,7 @@
   "name": "naive-common-components",
   "version": "1.0.0",
   "description": "",
-  "type":"module",
+  "type": "module",
   "main": "index.js",
   "private": true,
   "scripts": {
@@ -13,9 +13,8 @@
     "typeCheck:guide": "pnpm run -C packages/guide typeCheck",
     "dev:guide": "pnpm run -C packages/guide dev",
     "build:guide": "pnpm run -C packages/guide build",
-    "docs:dev": " vitepress dev docs",
-    "docs:serve": "vitepress serve docs",
-    "docs:build": "vitepress build docs",
+    "dev:docs": " vitepress dev docs",
+    "build:docs": "vitepress build docs",
     "register:components": "vitepress-rc"
   },
   "repository": {
@@ -34,7 +33,6 @@
   },
   "homepage": "https://github.com/mengyubit/naive-common-components#readme",
   "dependencies": {
-    "@naive-ui-common/guide": "link:packages/guide",
     "docs": "^0.3.2-canary.0",
     "naive-ui": "^2.33.5",
     "typescript": "4.8.4",

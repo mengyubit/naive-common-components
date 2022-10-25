@@ -15,15 +15,16 @@
   "files": [
     "dist"
   ],
-  "keywords": ["beginner's guide components", "naiveUI", "Vue3"],
+  "keywords": [
+    "beginner's guide components",
+    "naiveUI",
+    "Vue3"
+  ],
   "author": "mengyubit",
   "license": "MIT",
   "peerDependencies": {
     "naive-ui": ">=2.25.0",
     "vue": ">=3.2.0"
-  },
-  "dependencies": {
-    "@popperjs/core": "2.11.6"
   },
   "devDependencies": {
     "@types/node": "^18.11.2",
@@ -34,5 +35,8 @@
     "unplugin-auto-import": "0.11.2",
     "vite": "3.1.0",
     "vue-tsc": "0.40.4"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.6"
   }
 }
