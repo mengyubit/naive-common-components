@@ -7,7 +7,7 @@
     "prepublishOnly": "pnpm run build",
     "typeCheck": "vue-tsc --noEmit",
     "build:dev": "vue-tsc --outDir dist/types --declaration --emitDeclarationOnly  -w & vite build -w",
-    "build": "rm -rf dist && vue-tsc --declaration --emitDeclarationOnly  && vite build",
+    "build": "rm -rf dist && pnpm i && vue-tsc --declaration --emitDeclarationOnly  && vite build",
     "preview": "vite preview"
   },
   "main": "./dist/lib/naive-ui-guide.umd.js",
