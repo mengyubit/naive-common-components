@@ -1,7 +1,6 @@
 {
   "name": "@naive-ui-common/guide",
-  "version": "0.1.0",
-  "type": "module",
+  "version": "0.1.1",
   "scripts": {
     "dev": "vite",
     "prepublishOnly": "pnpm run build",
@@ -10,8 +9,8 @@
     "build": "rm -rf dist && vue-tsc --declaration --emitDeclarationOnly  && vite build",
     "preview": "vite preview"
   },
-  "main": "./dist/lib/guide.umd.cjs",
-  "module": "./dist/lib/guide.js",
+  "main": "./dist/lib/guide.umd.js",
+  "module": "./dist/lib/guide.mjs",
   "types": "./dist/types/lib/index.d.ts",
   "files": [
     "dist"

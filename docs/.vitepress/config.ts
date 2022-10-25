@@ -1,7 +1,7 @@
 import nav  from './configs/nav'
 import { defineConfig } from 'vitepress'
 
-module.exports = defineConfig({
+export default defineConfig({
   title: 'Guide Component',
   description: 'Life is short, Keep it simple.',
   head: [['meta', { name: 'theme-color', content: '#3c8772' }]],
