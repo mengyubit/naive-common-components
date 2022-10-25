@@ -61,7 +61,7 @@ jobs:
           directory: ./packages/coverage
           verbose: true
       - name: Build
-          run: pnpm run docs:build
+          run: pnpm run build:docs -w
 
         - name: Deploy
           uses: peaceiris/actions-gh-pages@v3
