@@ -2,7 +2,7 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "naive-ui-guide": "*",
+    "naive-ui-guide": "0.1.4",
     "sass": "1.55.0"
   },
   "peerDependencies": {
