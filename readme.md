@@ -17,10 +17,10 @@
 
 <script lang="ts" setup>
 import { NButton } from 'naive-ui';
-import { VTour, StepStatus, IStep } from "@naive-ui-common/guide"
+import { VTour, StepStatus, IStep } from "naive-ui-guide"
 import { onMounted, ref } from 'vue'
 import arrowUrl from "../assets/arrow.svg"
-import '@naive-ui-common/guide/dist/lib/style.css'
+import 'naive-ui-guide/dist/lib/style.css'
 
 const indexStyle = {
   display: "flex",
