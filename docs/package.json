@@ -4,5 +4,9 @@
   "dependencies": {
     "naive-ui-guide": "*",
     "sass": "1.55.0"
+  },
+  "peerDependencies": {
+    "vitepress": "1.0.0-alpha.22",
+    "vitepress-theme-demoblock": "1.4.2"
   }
 }

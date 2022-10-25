@@ -1,15 +1,16 @@
 import nav  from './configs/nav'
 import { defineConfig } from 'vitepress'
+const base = process.env.BASE || '/'
 
 export default defineConfig({
   title: 'Guide Component',
   description: 'Life is short, Keep it simple.',
   head: [['meta', { name: 'theme-color', content: '#3c8772' }]],
+  base,
 
   themeConfig: {
    
     nav,
-
     editLink: {
       pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path',
       text: 'Edit this page on GitHub'
