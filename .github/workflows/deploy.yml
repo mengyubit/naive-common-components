@@ -47,6 +47,7 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+        run: cd packages/guide && pnpm install && cd ../..
 
       - name: Build
         run: pnpm run build:docs
