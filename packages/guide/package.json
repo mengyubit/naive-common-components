@@ -1,6 +1,7 @@
 {
   "name": "@naive-ui-common/guide",
-  "version": "0.1.1",
+  "version": "0.1.2",
+  "repository": "git@github.com:mengyubit/naive-common-components.git",
   "scripts": {
     "dev": "vite",
     "prepublishOnly": "pnpm run build",
@@ -20,7 +21,7 @@
     "naiveUI",
     "Vue3"
   ],
-  "author": "mengyubit",
+  "author": "mengyu.lu",
   "license": "MIT",
   "peerDependencies": {
     "naive-ui": ">=2.25.0",
