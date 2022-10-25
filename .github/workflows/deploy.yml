@@ -46,7 +46,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm install && cd packages/guide && pnpm install && cd ../..
+        run: pnpm install && cd docs && pnpm install && cd ..
         
       - name: Build
         run: pnpm run build:docs
