@@ -10,7 +10,7 @@ importers:
       less: ^4.1.3
       naive-ui: ^2.33.5
       typescript: 4.8.4
-      vitepress: ^1.0.0-alpha.21
+      vitepress: ^1.0.0-alpha.22
       vitepress-theme-demoblock: ^1.4.2
       vue: 3.2.41
     dependencies:
@@ -22,7 +22,7 @@ importers:
     devDependencies:
       cross-env: 7.0.3
       less: 4.1.3
-      vitepress: 1.0.0-alpha.21_less@4.1.3
+      vitepress: 1.0.0-alpha.22_less@4.1.3
       vitepress-theme-demoblock: 1.4.2_less@4.1.3
 
   docs:
@@ -2099,8 +2099,8 @@ packages:
       - supports-color
     dev: true
 
-  /vitepress/1.0.0-alpha.21_less@4.1.3:
-    resolution: {integrity: sha1-70QMI+1PRhtVs5F5V93SvCAl8dg=, tarball: https://artifactory.tusen.ai:443/artifactory/api/npm/npm-infra-common/vitepress/-/vitepress-1.0.0-alpha.21.tgz}
+  /vitepress/1.0.0-alpha.22_less@4.1.3:
+    resolution: {integrity: sha1-f12lpWXzOn0Ir0ekVvOvdBG1Nk0=, tarball: https://artifactory.tusen.ai:443/artifactory/api/npm/npm-infra-common/vitepress/-/vitepress-1.0.0-alpha.22.tgz}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.2.2
