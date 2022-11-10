@@ -1,0 +1,42 @@
+$class-prefix: "array-base";
+
+.#{$class-prefix} {
+  &-remove {
+    margin: 0 12px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+
+    &.n-icon:hover {
+      fill: rgb(217, 33, 73);
+    }
+  }
+
+  &-remove-disable {
+    width: 24px;
+    height: 24px;
+    cursor: not-allowed !important;
+
+    &.n-icon:hover {
+      fill: #ccc;
+    }
+  }
+
+  &-addition {
+    margin-right: 8px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+
+  &-addition-disable {
+    margin-right: 12px;
+    width: 24px;
+    height: 24px;
+    cursor: not-allowed !important;
+
+    &.n-icon:hover {
+      fill: #ccc;
+    }
+  }
+}

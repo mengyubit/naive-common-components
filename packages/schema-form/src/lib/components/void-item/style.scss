@@ -1,0 +1,8 @@
+$class-prefix: "void-item";
+
+.#{$class-prefix} {
+  &-header {
+    display: flex;
+    align-items: center;
+  }
+}

@@ -1,0 +1,73 @@
+$class-prefix: "array-items";
+
+.#{$class-prefix} {
+  &-main {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &-header {
+    display: flex;
+    align-items: center;
+
+    &__count {
+      display: flex;
+      align-items: center;
+      margin-left: 8px;
+      color: #333;
+      font-weight: 400;
+      font-size: 16px;
+    }
+
+    &__total {
+      display: flex;
+      align-items: center;
+      color: #ccc;
+      font-weight: 400;
+      font-size: 16px;
+    }
+  }
+
+  &-sub-header {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 16px;
+
+    &-expend {
+      margin-right: 8px;
+      margin-left: -32px;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+    }
+  }
+
+  &-dividing-line {
+    margin-bottom: 24px;
+    height: 1px;
+    background: #d7dae0;
+  }
+
+  &-add {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+
+    &-text {
+      color: #333;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &-mark {
+    color: #d03050;
+    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &-content-extra {
+    display: flex;
+    justify-content: flex-start;
+  }
+}
