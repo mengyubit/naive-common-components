@@ -2,21 +2,6 @@ import { FormSchema } from "../../lib/index"
 import { cloneDeep } from "lodash-es"
 import { validateVolume } from './rules'
 
-const volumesOptions = [
-  {
-    path: '/mnt',
-    mountPath: '/mnt'
-  },
-  {
-    path: '/etc/timezone',
-    mountPath: '/etc/timezone'
-  },
-  {
-    path: '/etc/localtime',
-    mountPath: '/etc/localtime'
-  }
-];
-
 export const formSchema: FormSchema[] = [
   {
     field: "name",
@@ -36,13 +21,29 @@ export const formSchema: FormSchema[] = [
         position: 'relative'
       }
     },
-    required: true,
     componentProps: {
       minValue: 0,
       useSubHeader: true,
       AdditionAndRemovePlacement: 'right'
     },
-    defaultValue: cloneDeep(volumesOptions),
+    defaultValue: [
+      {
+        path: '/mnt',
+        mountPath: '/mnt'
+      },
+      {
+        path: '/etc/timezone',
+        mountPath: '/etc/timezone'
+      },
+      {
+        path: '/etc/localtime',
+        mountPath: '/etc/localtime'
+      },
+      {
+        path: '/etc/localtime1',
+        mountPath: '/etc/localtime1'
+      }
+    ],
     items: [
       [
         {
@@ -72,5 +73,55 @@ export const formSchema: FormSchema[] = [
         }
       ]
     ] as FormSchema[]
+  },
+  {
+    span: 24,
+    field: 'environmentVariable',
+    label: 'Environment Variables',
+    type: 'array',
+    component: 'array-item',
+    colProps: {
+      style: {
+        position: 'relative'
+      }
+    },
+    defaultValue:  [
+      {
+        value: null,
+        name: null
+      }
+    ],
+    required: true,
+    componentProps: {
+      minValue: 0,
+      useSubHeader: true,
+      AdditionAndRemovePlacement: 'right'
+    },
+    items: [
+      [
+        {
+          span: 8,
+          field: 'name',
+          component: 'n-input',
+          componentProps: {
+            placeholder: 'Name: e.g. Foo'
+          },
+          itemProps: {
+            showLabel: false
+          },
+        },
+        {
+          span: 8,
+          field: 'value',
+          component: 'n-input',
+          componentProps: {
+            placeholder: 'value: e.g. bar'
+          },
+          itemProps: {
+            showLabel: false
+          },
+        }
+      ]
+    ]
   }
 ]

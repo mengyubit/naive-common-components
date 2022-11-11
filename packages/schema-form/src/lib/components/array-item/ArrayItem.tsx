@@ -217,9 +217,10 @@ const ArrayItemsInner = defineComponent({
         if (model.length > 1) {
           const { schemaListVal } = getSchemaByPath(unref(filedRef))
           if (toRaw(schemaListVal).length !== model.length) {
+            let len = model.length - toRaw(schemaListVal).length
             for (
               let i = 0;
-              i < model.length - toRaw(schemaListVal).length;
+              i < len;
               i++
             ) {
               appendArraySchemaItems(
@@ -416,7 +417,7 @@ const ArrayItemsInner = defineComponent({
       const renderItems = () => {
         return arrayModal.value?.map((item, index) => {
           return (
-            <ArrayBase.Item index={index} record={item}>
+            <ArrayBase.Item index={index} record={item} key={item._id}>
               <ObjectItem
                 useCollapse={props.itemProps.useCollapse}
                 expend={props.itemProps.expend ?? true}

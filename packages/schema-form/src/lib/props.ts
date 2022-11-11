@@ -2,7 +2,6 @@ import { FormSchema } from "./types/form"
 import { CSSProperties, PropType } from "vue"
 import { ColEx, Recordable } from "./types"
 import { GridProps } from "naive-ui"
-import { IProjectSettings } from "./types/project-setting"
 
 export const basicProps = {
   inline: {
@@ -113,10 +112,5 @@ export const basicProps = {
     type: String as PropType<string>
   },
 
-  rowProps: Object as PropType<GridProps>,
-
-  projectSettings: {
-    type: Object as PropType<IProjectSettings>,
-    default: "#0057ff"
-  }
+  rowProps: Object as PropType<GridProps>
 }

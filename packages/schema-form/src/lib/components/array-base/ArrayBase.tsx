@@ -25,7 +25,6 @@ import "./style.scss"
 import { Ref } from "vue"
 import ArrayItem from "../array-item/ArrayItem"
 import SvgIcon from "../Icon/SvgIcon.vue"
-import { useProjectSettingsContext } from "../../hooks/useProjectSettings"
 
 export interface IArrayBaseAdditionProps extends NButtonProps {
   title?: string
@@ -227,10 +226,6 @@ const ArrayBaseAddition = defineComponent({
     const prefixCls  = "array-base"
     const useThemeVar = useThemeVars()
     const primaryColor = unref(useThemeVar).primaryColor
-    console.log({
-      useThemeVar,
-      primaryColor
-    })
     return () => {
       if (!array) return null
       const additionClickHandle = (e) => {

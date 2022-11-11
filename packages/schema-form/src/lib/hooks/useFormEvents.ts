@@ -144,9 +144,8 @@ export function useFormEvents({
     path: string,
     index?: number
   ) {
-    const schemaList: FormSchema[] = cloneDeep(unref(getSchema))
+    const schemaList: FormSchema[] = (unref(getSchema))
     _appendArraySchemaByPath(path, schemaList, items, index)
-    schemaRef.value = schemaList
   }
 
   function _appendArraySchemaByPath(path: string, getSchema, items, idx) {
@@ -166,9 +165,8 @@ export function useFormEvents({
    */
 
   async function removeArraySchemaItems(path: string, index?: number) {
-    const schemaList: FormSchema[] = cloneDeep(unref(getSchema))
+    const schemaList: FormSchema[] = (unref(getSchema))
     _removeArraySchemaByPath(path, schemaList, index)
-    schemaRef.value = schemaList
   }
 
   function _removeArraySchemaByPath(path: string, getSchema, idx) {
@@ -277,14 +275,13 @@ export function useFormEvents({
     first = false
   ) {
     if (isString(prefixField)) {
-      const schemaList: FormSchema[] = cloneDeep(unref(getSchema))
+      const schemaList: FormSchema[] = (unref(getSchema))
       const segments = FormPath.parse(prefixField).segments
       findSchemaByPath(segments, schemaList, (schemaListItem, index) => {
         isArray(schema)
           ? schemaListItem.splice(first ? index : index + 1, 0, ...schema)
           : schemaListItem.splice(first ? index : index + 1, 0, schema)
       })
-      schemaRef.value = schemaList
     }
   }
 

@@ -56,7 +56,6 @@ import { set } from "lodash-es"
 import { basicProps } from "./props"
 import { Recordable, Nullable } from "./types/index"
 import { useLoading } from './hooks/tools/useLoading'
-import { createProjectSettingsContext } from './hooks/useProjectSettings'
 
 export default defineComponent({
   name: "BasicForm",
@@ -64,7 +63,6 @@ export default defineComponent({
   props: basicProps,
   emits: ["advanced-change", "reset", "submit", "register"],
   setup(props, { emit, attrs }) {
-    createProjectSettingsContext(props.projectSettings)
     // 不能接受外部modal，会导致多个modal同时存在一个对象
     const formModel = reactive<Recordable>({})
     const advanceState = reactive<AdvanceState>({

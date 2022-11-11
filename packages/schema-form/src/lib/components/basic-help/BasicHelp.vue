@@ -3,7 +3,6 @@ import { computed, unref, withDefaults, VNode } from 'vue'
 import { NPopover, useThemeVars } from "naive-ui"
 import type { PopoverProps } from "naive-ui"
 import { isString } from "../../utils"
-import { useProjectSettingsContext } from "../../hooks/useProjectSettings"
 
 type PickProps<T, P> = P extends keyof T ? T[P] : never
 const props = withDefaults(defineProps<{
