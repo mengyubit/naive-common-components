@@ -18,4 +18,9 @@
     "removeComments": true,
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "exclude": [ 
+    "**/example/",
+    "src/App.vue",
+    "src/main.ts"
+  ] 
 }

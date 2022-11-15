@@ -30,6 +30,7 @@
 20.items 改成children
 21.isValidateTrigger 
 
+23. formItemElRefs收集问题 @mengyu.lu
 
 25.展开收起 没有v-show 效果
 
