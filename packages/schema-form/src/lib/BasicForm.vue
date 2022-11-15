@@ -33,7 +33,7 @@
 // @ts-ignore 
 import { FormActionType, FormProps, FormSchema } from "./types/form"
 import { AdvanceState } from "./types/hooks"
-import { Ref, markRaw, toRaw } from "vue"
+import { Ref, markRaw, toRaw, ComputedRef } from "vue"
 import {
   defineComponent,
   reactive,
@@ -57,6 +57,23 @@ import { set } from "lodash-es"
 import { basicProps } from "./props"
 import { Recordable, Nullable } from "./types/index"
 import { useLoading } from './hooks/tools/useLoading'
+
+type BasicFormType = typeof basicProps & {
+    formItemElRefs: InstanceType<typeof NForm>,
+    getBindValue: Recordable<any>,
+    formModel: Recordable<any>,
+    defaultValueRef: Ref<Recordable<any>>,
+    advanceState: AdvanceState,
+    getRow: ComputedRef<Recordable<any>>,
+    getProps: ComputedRef<FormProps>,
+    formElRef: Ref<Nullable<FormActionType>>,
+    getSchema: ComputedRef<FormSchema[]>,
+    formActionType: any,
+    getFormActionBindProps: ComputedRef<Recordable<any>>
+    setFormModel: (key: string, value: any) => void,
+    handleEnterPress: (e: KeyboardEvent)=> void,
+    storageFormItemEl: (el: any) => void,
+} & Partial<FormActionType>;
 
 export default defineComponent({
   name: "BasicForm",

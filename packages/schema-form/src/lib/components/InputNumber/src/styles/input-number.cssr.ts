@@ -1,5 +1,5 @@
-import { cB, c } from "naive-ui/lib/_utils/cssr"
-
+import * as cssRender from 'css-render'
+import { c, cB } from "naive-ui";
 export default c([
   cB(
     "input-number-suffix",

@@ -64,10 +64,10 @@
 </template>
 
 <script lang="tsx">
-import { defineComponent, ref, toRef, watch, computed, PropType } from 'vue';
+import { defineComponent, ref, toRef, watch, computed, PropType, DefineComponent } from 'vue';
 import { rgba } from 'seemly';
 import { useMemo, useMergedState } from 'vooks';
-import { NInput, NButton, InputInst, useThemeVars } from 'naive-ui';
+import { NInput, NButton, InputInst, useThemeVars, NInputNumber } from 'naive-ui';
 import { parse, validator, format, parseNumber, isWipValue } from './utils';
 import type { OnUpdateValue, InputNumberInst } from './interface';
 import { call, ExtractPublicPropTypes, MaybeArray } from 'naive-ui/lib/_utils';
@@ -143,7 +143,7 @@ const inputNumberProps = {
 
 export type InputNumberProps = ExtractPublicPropTypes<typeof inputNumberProps>;
 
-export default defineComponent({
+const IInputNumber: InstanceType<typeof NInputNumber>['$props'] =  defineComponent({
   name: 'IInputNumber',
   components: {
     RemoveIcon,
@@ -528,6 +528,8 @@ export default defineComponent({
     };
   }
 });
+
+export default IInputNumber
 </script>
 
 <style scoped lang="scss">
