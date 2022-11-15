@@ -1,14 +1,14 @@
 {
   "name": "naive-ui-schema-form",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "prepublishOnly": "pnpm run build",
     "typeCheck": "vue-tsc --noEmit",
     "build:dev": "vue-tsc --outDir dist/types --declaration --emitDeclarationOnly  -w & vite build -w",
-    "build": "rm -rf dist && vue-tsc --declaration --emitDeclarationOnly",
+    "build": "rm -rf dist && vue-tsc --declaration --emitDeclarationOnly && vite build",
     "preview": "vite preview"
   },
   "main": "./dist/lib/naive-ui-schema-form.umd.cjs",
