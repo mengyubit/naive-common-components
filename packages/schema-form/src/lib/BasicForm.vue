@@ -163,6 +163,7 @@ export default defineComponent({
       getSchema,
       defaultValueRef,
       formElRef: formElRef as Ref<FormActionType>,
+      formItemElRefs,
       schemaRef: schemaRef as Ref<FormSchema[]>,
       handleFormValues
     })
