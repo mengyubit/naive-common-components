@@ -54,7 +54,7 @@ export function useFormItemApi({ apiConfig }: UseFormItemApiContext) {
       options.value = []
       try {
         loadingRef.value = true
-        const res = await api(params)
+        const res = await api(params as Recordable<any>)
         isFirstLoad.value = true
         handleApiRes(res)
       } catch (error) {

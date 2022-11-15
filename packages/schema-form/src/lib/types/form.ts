@@ -170,7 +170,7 @@ export interface FormSchema {
         formActionType: Partial<FormActionType>,
         renderMessageOrigin?: () => VNodeChild
       ) => VNodeChild)
-  // Label width, if it is passed, the labelCol and WrapperCol configured by itemProps will be invalid
+  // Label width, if it is passed,  configured by itemProps will be invalid
   labelWidth?: string | number
   // render component
   component?: ComponentMapKeyType | "div"

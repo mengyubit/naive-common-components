@@ -1,4 +1,4 @@
-import { cB, c } from "naive-ui/lib//_utils/cssr"
+import { cB, c } from "naive-ui/lib/_utils/cssr"
 
 export default c([
   cB(

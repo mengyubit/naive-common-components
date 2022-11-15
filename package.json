@@ -13,6 +13,10 @@
     "typeCheck:guide": "pnpm run -C packages/guide typeCheck",
     "dev:guide": "pnpm run -C packages/guide dev",
     "build:guide": "pnpm run -C packages/guide build",
+
+    "dev:form": "pnpm run -C packages/schema-form dev",
+    "build:form": "pnpm run -C packages/schema-form build",
+
     "dev:docs": "vitepress dev docs",
     "build:docs": "cross-env BASE=/naive-common-components/ vitepress build docs",
     "register:components": "vitepress-rc"

@@ -19,9 +19,9 @@ import { cloneDeep, get } from "lodash-es"
 import "./style.scss"
 import ObjectItem from "../object-item/ObjectItem"
 import { NSwitch, NCollapseTransition } from "naive-ui"
-import UpAlertImg from "@/assets/img/up-alert.png"
+import UpAlertImg from "../../assets/up-alert.png"
 import GridItem from "../GridItem/index"
-
+import { FormSchema } from '../../index'
 const ArrayItemsInner = defineComponent({
   name: "ArrayItems",
   inheritAttrs: false,
@@ -182,7 +182,7 @@ const ArrayItemsInner = defineComponent({
 
     const setArrayFormModel = (type = "push", index = -1) => {
       const cloneArrayValue = cloneDeep(arrayModal.value)
-      const cloneArraySchema = cloneDeep(toRaw(itemSchema?.[0]))
+      const cloneArraySchema = cloneDeep(toRaw(itemSchema?.[0] as FormSchema[]))
 
       if (type === "push") {
         cloneArrayValue.push(cloneDeep(createArrayModal(itemSchema?.[0])))
@@ -224,7 +224,7 @@ const ArrayItemsInner = defineComponent({
               i++
             ) {
               appendArraySchemaItems(
-                cloneDeep(toRaw(itemSchema?.[0])),
+                cloneDeep(cloneDeep(toRaw(itemSchema?.[0] as FormSchema[]))),
                 unref(filedRef)
               )
             }

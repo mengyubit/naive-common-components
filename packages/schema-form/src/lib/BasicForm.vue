@@ -29,7 +29,8 @@
     <slot name="formFooter"></slot>
   </NForm>
 </template>
-<script lang="ts">
+<script lang="tsx">
+// @ts-ignore 
 import { FormActionType, FormProps, FormSchema } from "./types/form"
 import { AdvanceState } from "./types/hooks"
 import { Ref, markRaw, toRaw } from "vue"

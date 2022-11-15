@@ -25,11 +25,11 @@ export async function useAutoFocus({
     if (!formEl || !el || !schemas || schemas.length === 0) {
       return
     }
-
-    const firstItem = schemas[0]
-    if (!(firstItem.component as string[])?.includes("Input")) {
-      return
-    }
+    // 看看
+    // const firstItem = schemas[0]
+    // if (!(firstItem.component as string[])?.includes("Input")) {
+    //   return
+    // }
 
     const inputEl = el.querySelector(".n-input") as Nullable<HTMLInputElement>
     if (!inputEl) return

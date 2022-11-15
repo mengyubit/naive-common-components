@@ -6,8 +6,8 @@ export const deepCopy = (source) => {
   // 获取数据类型，返回值如："Object"、"Array"、"Symbol" 等
   const getClass = (x) => {
     const type = Object.prototype.toString.call(x)
-    return /^\[object (.*)\]$/.exec(type)[1]
-  }
+    return /^\[object (.*)\]$/.exec(type)?.[1] as string
+}
 
   // 判断是否为数组
   const isArray = (arr) => getClass(arr) === "Array"

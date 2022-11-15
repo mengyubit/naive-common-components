@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { CSSProperties } from "vue"
-import UpAlertImg from "@/assets/img/up-alert.png"
+import UpAlertImg from "../../assets/up-alert.png"
 import SvgIcon from "../Icon/SvgIcon.vue"
 
 const props = withDefaults(

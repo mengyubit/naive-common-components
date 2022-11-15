@@ -82,13 +82,7 @@ const iconColorRef = computed(() => {
     return unref(props.color) || '#ccc';
   }
 });
-const hoverColorRef = computed(() => {
-  if (props.disabled) {
-    return '#D7DAE0';
-  } else {
-    return unref(props.hoverColor) || '#ccc';
-  }
-});
+
 const getStyle = computed((): CSSProperties => {
   const { size, disabled, closePointer } = props;
   return {

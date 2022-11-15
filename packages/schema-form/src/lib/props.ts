@@ -1,6 +1,6 @@
 import { FormSchema } from "./types/form"
 import { CSSProperties, PropType } from "vue"
-import { ColEx, Recordable } from "./types"
+import { Recordable } from "./types"
 import { GridProps } from "naive-ui"
 
 export const basicProps = {
@@ -77,8 +77,6 @@ export const basicProps = {
     type: Boolean as PropType<boolean>,
     default: true
   },
-  // 操作列Col配置
-  actionColOptions: Object as PropType<Partial<ColEx>>,
   // 显示重置按钮
   showResetButton: {
     type: Boolean as PropType<boolean>,
@@ -99,14 +97,10 @@ export const basicProps = {
     type: Boolean as PropType<boolean>
   },
 
-  labelCol: Object as PropType<Partial<ColEx>>,
-
   layout: {
     type: String as PropType<"horizontal" | "vertical" | "inline">,
     default: "horizontal"
   },
-
-  wrapperCol: Object as PropType<Partial<ColEx>>,
 
   labelAlign: {
     type: String as PropType<string>
