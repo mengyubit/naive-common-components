@@ -24,14 +24,18 @@ export default defineConfig({
  
   build: {
     target: "es2015",
+    minify: false,
+    sourcemap: true,
     outDir: 'dist/lib',
     lib: {
       entry: path.resolve(__dirname, './src/lib/index.ts'),
       name: 'naive-ui-schema-form'
     },
     rollupOptions: {
-      external: ['vue', 'naive-ui'],
+      external: ['naive-ui'],
       output: {
+        sourcemap: true,
+        esModule: true,
         globals: {
           vue: 'Vue',
           'naive-ui': 'naive',

@@ -1,4 +1,4 @@
-import * as cssRender from 'css-render'
+import { CssRender } from 'css-render'
 import { c, cB } from "naive-ui";
 export default c([
   cB(

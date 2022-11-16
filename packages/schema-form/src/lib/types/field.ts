@@ -1,4 +1,3 @@
-import * as Vue from "vue"
 import { Component } from "vue"
 export type Field = string
 
@@ -6,7 +5,7 @@ export type ArrayField = Array<Field> | Field
 export type GeneralField = Array<Field> | Field
 
 class Helper<Props> {
-  Return = Vue.defineComponent({} as { props: Record<keyof Props, any> })
+  Return = defineComponent({} as { props: Record<keyof Props, any> })
 }
 
 export type DefineComponent<Props> = Helper<Props>["Return"]

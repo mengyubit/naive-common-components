@@ -6,7 +6,7 @@
     class="basic-form"
     @keypress.enter="handleEnterPress"
   >
-    <slot name="formHeader"></slot>
+    <!-- <slot name="formHeader"></slot> -->
     <NGrid v-bind="getRow">
       <template v-for="schema in getSchema" :key="schema.field">
         <FormItem
@@ -26,7 +26,7 @@
         </FormItem>
       </template>
     </NGrid>
-    <slot name="formFooter"></slot>
+    <!-- <slot name="formFooter"></slot> -->
   </NForm>
 </template>
 <script lang="tsx">

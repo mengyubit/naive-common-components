@@ -1,4 +1,11 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import naiveUI from "naive-ui"
+async function bootstrap() {
 
-createApp(App).mount('#app')
+  const app = createApp(App)
+  app.use(naiveUI)
+  app.mount("#app")
+}
+
+bootstrap()
