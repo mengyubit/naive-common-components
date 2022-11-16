@@ -1,8 +1,7 @@
 {
   "name": "naive-ui-schema-form",
   "private": false,
-  "version": "0.1.0",
-  "type": "module",
+  "version": "0.1.1",
   "scripts": {
     "dev": "vite",
     "prepublishOnly": "pnpm run build",
@@ -12,9 +11,9 @@
     "preview": "vite preview",
     "publish:form": "pnpm config set registry https://registry.npmjs.org && pnpm publish && pnpm config set registry https://artifactory.tusimple.ai/artifactory/api/npm/npm-infra-common/"
   },
-  "main": "./dist/lib/naive-ui-schema-form.umd.cjs",
-  "module": "./dist/lib/naive-ui-schema-form.js",
-  "types": "./dist/types/lib/index.d.ts",
+  "main": "./dist/lib/naive-ui-schema-form.umd.js",
+  "module": "./dist/lib/naive-ui-schema-form.mjs",
+  "types": "./dist/types/index.d.ts",
   "files": [
     "dist"
   ],
