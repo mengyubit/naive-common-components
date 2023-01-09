@@ -5,6 +5,9 @@ import vueJsx from "@vitejs/plugin-vue-jsx"
 import path from "path"
 
 import AutoImport from 'unplugin-auto-import/vite'
+import { fixVue3NoMatchingExportDefaultPlugin } from './plugin'
+
+﻿
 
 export default defineConfig({
   plugins: [vue(), vueJsx(),  AutoImport({
@@ -13,7 +16,8 @@ export default defineConfig({
       "vue-router"
     ],
     dts: "src/types/auto-imports.d.ts"
-  })],
+  }), 
+  fixVue3NoMatchingExportDefaultPlugin({})],
   resolve: {
     // 导入别名
     alias: {
@@ -32,7 +36,7 @@ export default defineConfig({
       name: 'naive-ui-schema-form'
     },
     rollupOptions: {
-      external: ['naive-ui'],
+      external: ['vue', 'naive-ui'],
       output: {
         sourcemap: true,
         esModule: true,
