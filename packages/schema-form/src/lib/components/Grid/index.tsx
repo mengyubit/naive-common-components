@@ -40,18 +40,12 @@ export type GridProps = ExtractPublicPropTypes<typeof gridProps>
 export default defineComponent({
   name: "IGrid",
   props: gridProps,
-  setup(props) {
-    return {
-     props
-    
-    }
-  },
-
   render() {
     return (
-      <NGrid  {...this.props} style={this.props.style}>
+      <NGrid  {...this.$props} style={this.$props.style}>
         {this.$slots.default?.()}
       </NGrid>
     )
   }
 })
+
