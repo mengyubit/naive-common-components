@@ -1,7 +1,7 @@
 import { FormSchema } from "./types/form"
 import { CSSProperties, PropType } from "vue"
 import { Recordable } from "./types"
-import { GridProps } from "naive-ui"
+import { GridProps } from "./components/Grid/index"
 
 export const basicProps = {
   inline: {

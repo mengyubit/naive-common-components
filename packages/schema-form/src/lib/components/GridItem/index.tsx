@@ -2,7 +2,7 @@ import { h, defineComponent, inject, getCurrentInstance, PropType } from "vue"
 import { pxfy } from "seemly"
 import { NGridItem } from "naive-ui"
 import { ExtractPublicPropTypes, keysOf } from "naive-ui/es/_utils"
-import { gridInjectionKey } from "./config"
+import { gridInjectionKey } from "naive-ui/lib/grid/src/config"
 
 export const defaultSpan = 1
 
@@ -50,19 +50,23 @@ export default defineComponent({
 
     // Here is quite a hack, I hope there is a better way to solve it
     const {
-      privateSpan = defaultSpan
+      privateSpan
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     } = self!.vnode.props as GridItemVNodeProps
     const { value: xGap } = xGapRef
 
     const mergedXGap = pxfy(xGap || 0)
     const mergedBlankSpan: number = (blankSpan as number) || 0
+    let marginRight = ''
+    let mergedPrivateSpan
 
-    const mergedPrivatespan = privateSpan + mergedBlankSpan
-
-    const marginRight = blankSpan
-      ? `calc((100% - (${mergedPrivatespan} - 1) * ${mergedXGap}) / ${mergedPrivatespan} * ${mergedBlankSpan} + ${mergedXGap} * ${mergedBlankSpan})`
+    if (privateSpan) {
+      mergedPrivateSpan = privateSpan + mergedBlankSpan
+       marginRight = blankSpan
+      ? `calc((100% - (${mergedPrivateSpan} - 1) * ${mergedXGap}) / ${mergedPrivateSpan} * ${mergedBlankSpan} + ${mergedXGap} * ${mergedBlankSpan})`
       : ""
+    }
+
 
     return {
       styles: {
@@ -70,7 +74,7 @@ export default defineComponent({
       },
       mergeProps: {
         ...props,
-        privateSpan: mergedPrivatespan
+        privateSpan: mergedPrivateSpan
       }
     }
   },

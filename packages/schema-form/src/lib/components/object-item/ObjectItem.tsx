@@ -1,4 +1,5 @@
 import { CSSProperties, defineComponent, renderSlot } from "vue"
+import { get } from "lodash-es"
 import {
   useField,
   useFieldSchema,
@@ -6,14 +7,14 @@ import {
 } from "../../hooks/useFormContext"
 import FormItem from "../FormItem"
 import "./style.scss"
-import { NSwitch, NGrid } from "naive-ui"
+import { NSwitch } from "naive-ui"
 import BasicHelp from "../basic-help/BasicHelp.vue"
 import { isFunction } from "../../utils"
 import { ArrayBase } from "../array-base/ArrayBase"
 import { VNode } from "vue"
 import { FormSchema, RenderCallbackFn } from "../../types/form"
+import Grid from "../Grid/index"
 
-import { get } from "lodash-es"
 const ObjectItems = defineComponent({
   name: "FArrayItems",
   props: {
@@ -90,7 +91,7 @@ const ObjectItems = defineComponent({
           class={`${prefixCls}-content`}
           style={unref(schemaRef).itemStyle?.contentStyle}
         >
-          <NGrid {...schemaRef.value.rowProps}>
+          <Grid {...schemaRef.value.rowProps}>
             {(unref(dataSource) as FormSchema[])?.map((item) => {
               return (
                 <FormItem
@@ -103,7 +104,7 @@ const ObjectItems = defineComponent({
               )
             })}
             {renderSlot(slots, "contentExtra", { path: props.field })}
-          </NGrid>
+          </Grid>
         </div>
       )
     }
