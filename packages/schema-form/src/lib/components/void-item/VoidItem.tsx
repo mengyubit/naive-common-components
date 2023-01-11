@@ -4,9 +4,10 @@ import { useField, useFieldSchema } from "../../hooks/useFormContext"
 import FormItem from "../FormItem"
 import { isFunction } from "../../utils"
 import { ArrayBase } from "../array-base/ArrayBase"
-import { NGrid, NSwitch } from "naive-ui"
+import { NSwitch } from "naive-ui"
 import { RenderCallbackFn } from "../../types/form"
 import { VNode } from "vue"
+import Grid from "../Grid/index"
 
 const VoidItem = defineComponent({
   name: "Collapse",
@@ -77,7 +78,7 @@ const VoidItem = defineComponent({
           style={unref(schemaRef).itemStyle?.contentStyle}
           class={`${prefixCls}-content`}
         >
-          <NGrid {...schema.rowProps}>
+          <Grid {...schema.rowProps}>
             {dataSource?.map((item) => {
               return (
                 <FormItem
@@ -93,7 +94,7 @@ const VoidItem = defineComponent({
                 ></FormItem>
               )
             })}
-          </NGrid>
+          </Grid>
         </div>
       )
     }

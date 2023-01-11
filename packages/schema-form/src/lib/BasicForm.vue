@@ -6,8 +6,7 @@
     class="basic-form"
     @keypress.enter="handleEnterPress"
   >
-    <!-- <slot name="formHeader"></slot> -->
-    <NGrid v-bind="getRow">
+    <Grid v-bind="getRow">
       <template v-for="schema in getSchema" :key="schema.field">
         <FormItem
           :ref="storageFormItemEl"
@@ -25,11 +24,11 @@
           </template>
         </FormItem>
       </template>
-    </NGrid>
-    <!-- <slot name="formFooter"></slot> -->
+    </Grid>
   </NForm>
 </template>
 <script lang="tsx">
+import Grid from './components/Grid/index'
 import { FormActionType, FormProps, FormSchema } from "./types/form"
 import { AdvanceState } from "./types/hooks"
 import { Ref, markRaw } from "vue"
@@ -59,7 +58,7 @@ import { useLoading } from './hooks/tools/useLoading'
 
 export default defineComponent({
   name: "BasicForm",
-  components: { FormItem },
+  components: { FormItem, Grid },
   props: basicProps,
   emits: ["advanced-change", "reset", "submit", "register"],
   setup(props, { emit, attrs }) {

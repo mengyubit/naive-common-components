@@ -9,7 +9,7 @@
     "build:dev": "vue-tsc --outDir dist/types --declaration --emitDeclarationOnly  -w & vite build -w",
     "build": "rm -rf dist && vue-tsc --declaration --emitDeclarationOnly && vite build",
     "preview": "vite preview",
-    "publish:form": "pnpm config set registry https://registry.npmjs.org && pnpm publish && pnpm config set registry https://artifactory.tusimple.ai/artifactory/api/npm/npm-infra-common/"
+    "publish:form": "pnpm config set registry https://registry.npmjs.org && pnpm publish && pnpm config set registry https://artifactory.tusen.ai/artifactory/api/npm/npm-infra-common/"
   },
   "main": "./dist/lib/naive-ui-schema-form.umd.js",
   "module": "./dist/lib/naive-ui-schema-form.mjs",
