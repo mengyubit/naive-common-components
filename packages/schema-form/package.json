@@ -1,15 +1,14 @@
 {
   "name": "naive-ui-schema-form",
   "private": false,
-  "version": "0.1.3",
+  "version": "0.1.3-alpha",
   "scripts": {
     "dev": "vite",
     "prepublishOnly": "pnpm run build",
     "typeCheck": "vue-tsc --noEmit",
     "build:dev": "vue-tsc --outDir dist/types --declaration --emitDeclarationOnly  -w & vite build -w",
     "build": "rm -rf dist && vue-tsc --declaration --emitDeclarationOnly && vite build",
-    "preview": "vite preview",
-    "publish:form": "pnpm config set registry https://registry.npmjs.org && pnpm publish && pnpm config set registry https://artifactory.tusen.ai/artifactory/api/npm/npm-infra-common/"
+    "preview": "vite preview"
   },
   "main": "./dist/lib/naive-ui-schema-form.umd.js",
   "module": "./dist/lib/naive-ui-schema-form.mjs",
