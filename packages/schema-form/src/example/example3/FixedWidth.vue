@@ -22,7 +22,7 @@ const rowProps = {
   xGap: 20,
   yGap: 0 ,
   style: {
-    gridTemplateColumns: '100px repeat(12, 1fr) 100px repeat(24, 1fr)'
+    gridTemplateColumns: '100px repeat(12, 1fr) 100px repeat(12, 1fr)'
   }
 }
 </script>
