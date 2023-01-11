@@ -1,3 +1,5 @@
+<!-- 固定宽度的布局demo -->
+
 <script lang="ts" setup>
 import { useForm, BasicForm } from '../../lib/index';
 import { formSchema } from './schema'
@@ -23,7 +25,8 @@ const rowProps = {
   yGap: 0 ,
   style: {
     gridTemplateColumns: '100px repeat(12, 1fr) 100px repeat(12, 1fr)'
-  }
+  },
+  cols: 26
 }
 </script>
 <template>
