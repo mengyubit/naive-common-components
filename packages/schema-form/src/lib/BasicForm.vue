@@ -9,7 +9,6 @@
     <Grid v-bind="getRow">
       <template v-for="schema in getSchema" :key="schema.field">
         <FormItem
-          :ref="storageFormItemEl"
           :span="schema.span"
           v-bind="schema.colProps"
           :schema="{
@@ -77,8 +76,23 @@ export default defineComponent({
     const formElRef = ref<Nullable<FormActionType>>(null)
     const formItemElRefs = markRaw<Array<InstanceType<typeof NForm>>>([])
 
-    const storageFormItemEl = (el) => {
-      formItemElRefs.push(el)
+    const storageFormItemEl = (el, isUnmounted = false) => {
+      if (!el || !el.path) {
+        return;
+      }
+      const index = formItemElRefs.findIndex((item: any) => item.path === el.path);
+      if (index !== -1) {
+        // 卸载时删除
+        if (isUnmounted) {
+          formItemElRefs.splice(index, 1);
+        } else {
+          // 更新时替换
+          console.log('tihuan');
+          formItemElRefs.splice(index, 1, el);
+        }
+      } else {
+        formItemElRefs.push(unref(el));
+      }
     }
 
     const getProps = computed(
@@ -263,7 +277,8 @@ export default defineComponent({
       validate,
       appendArraySchemaItems,
       removeArraySchemaItems,
-      getSchemaByPath
+      getSchemaByPath,
+      storageFormItemEl
     })
 
     onMounted(() => {

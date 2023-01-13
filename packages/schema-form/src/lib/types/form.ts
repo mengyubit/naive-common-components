@@ -71,7 +71,7 @@ export interface FormActionType {
   ) => Promise<void>
   validateFields: (
     field: string[],
-    options: { trigger?: string; callback?: FormValidateCallback },
+    options?: { trigger?: string; callback?: FormValidateCallback },
     shouldRuleBeApplied?: ApplyRule
   ) => Promise<any>
   validate: (

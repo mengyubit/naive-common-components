@@ -113,6 +113,21 @@ export default defineComponent({
       createField(props.path)
       createFieldSchema(schema)
     }
+
+    onMounted(() => {
+      const { storageFormItemEl } = useFormContext();
+      if (formItem.value) {
+        storageFormItemEl(formItem.value, false);
+      }
+    });
+    
+    onUnmounted(() => {
+      const { storageFormItemEl } = useFormContext();
+      if (formItem.value) {
+        storageFormItemEl(formItem.value, true);
+      }
+    });
+
     const getComponentsProps = computed(() => {
       const { schema } = props
       const { componentProps = {} } = schema

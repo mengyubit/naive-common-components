@@ -35,7 +35,8 @@ export interface FormContextProps {
   ) => void
   formModel: Recordable
   formActionType: Partial<FormActionType>
-  getBindValues: ComputedRef<Recordable>
+  getBindValues: ComputedRef<Recordable>,
+  storageFormItemEl: (el, isUnmounted?: boolean) => void;
 }
 export interface FieldParentParent {
   parentModel: Recordable

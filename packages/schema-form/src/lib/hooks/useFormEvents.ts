@@ -399,10 +399,15 @@ export function useFormEvents({
     }
   ) {
     const formItemEls = unref(formItemElRefs)
+    
     formItemEls.forEach((formItemEl) => {
+      console.log(unref((formItemEl as any)?.path))
       // @ts-ignore
-      if (field.includes(formItemEl?.getValues.field))
-        formItemEl!.validate(options as any)
+      if (field.includes((formItemEl as any)?.path)) {
+        // @ts-ignore
+        console.log('call');
+        formItemEl!.validate.call(formItemEl, options as any);
+      }
     })
   }
   async function validate(
