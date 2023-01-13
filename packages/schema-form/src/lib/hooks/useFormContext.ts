@@ -1,7 +1,7 @@
 import {
   ApplyRule,
   FormActionType,
-  FormProps,
+  IIconConfig,
   FormValidateCallback
 } from "../types/form"
 
@@ -58,6 +58,7 @@ export interface ArrayItemModal {
   ) => void
   getArrayFormModel: (index?: number) => Recordable
 }
+const iconKey: InjectionKey<FormContextProps> = Symbol()
 const key: InjectionKey<FormContextProps> = Symbol()
 
 const FieldParentParentKey: InjectionKey<FieldParentParent> = Symbol()
@@ -102,4 +103,12 @@ export function createFieldModal(context: ArrayItemModal) {
 
 export function useFieldModal() {
   return useContext<ArrayItemModal>(FieldModalKey)
+}
+
+export function createIconConfigContext(context: IIconConfig[]) {
+  return createContext<IIconConfig[]>(context, iconKey)
+}
+
+export function useIconConfigContext() {
+  return useContext<IIconConfig[]>(iconKey)
 }

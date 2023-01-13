@@ -139,7 +139,7 @@ export function useFormEvents({
     }
   }
 
-  function appendArraySchemaItems(
+ function appendArraySchemaItems(
     items: FormSchema[] | FormSchema,
     path: string,
     index?: number
@@ -272,16 +272,29 @@ export function useFormEvents({
   async function appendSchemaByPath(
     schema: FormSchema[] | FormSchema,
     prefixField: string,
-    first = false
+    first = false,
+    idx,
   ) {
     if (isString(prefixField)) {
       const schemaList: FormSchema[] = (unref(getSchema))
       const segments = FormPath.parse(prefixField).segments
-      findSchemaByPath(segments, schemaList, (schemaListItem, index) => {
-        isArray(schema)
-          ? schemaListItem.splice(first ? index : index + 1, 0, ...schema)
-          : schemaListItem.splice(first ? index : index + 1, 0, schema)
-      })
+      if(isArray(schema)) {
+        findSchemaByPath(segments, schemaList, (schemaListItem, index) => {
+          schemaListItem[index].items?.splice(
+            idx ?? schemaListItem[index].items?.length,
+            0,
+            schema
+          )
+        })
+        return
+      } else {
+        findSchemaByPath(segments, schemaList, (schemaListItem, index) => {
+          isArray(schema)
+            ? schemaListItem.splice(first ? index : index + 1, 0, ...schema)
+            : schemaListItem.splice(first ? index : index + 1, 0, schema)
+        })
+      }
+      
     }
   }
 

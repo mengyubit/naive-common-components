@@ -148,7 +148,7 @@ export function useForm(props?: Props): UseFormReturnType {
     },
     validateFields: async (
       field: string[],
-      options: { trigger?: string; callback?: FormValidateCallback },
+      options?: { trigger?: string; callback?: FormValidateCallback },
       shouldRuleBeApplied?: ApplyRule
     ): Promise<any> => {
       const form = await getForm()
@@ -157,7 +157,8 @@ export function useForm(props?: Props): UseFormReturnType {
     setLoading: async (loading: boolean) => {
       const form = await getForm()
       form.setLoading(loading)
-    }
+    },
+    getCurrentSchema: () => unref(formRef)?.getCurrentSchema?.() || []
   }
 
   return [register, methods]

@@ -3,8 +3,7 @@ import moment from "moment"
 import { unref } from "vue"
 import { Ref, ComputedRef } from "vue"
 import { FormProps, FormSchema } from "../types/form"
-import { set } from "lodash-es"
-import { cloneDeep } from "lodash-es"
+import {set, cloneDeep, get } from "lodash-es"
 import { buildUUID, isBoolean, deepCopy } from "../utils"
 
 interface UseFormValuesContext {
@@ -138,7 +137,7 @@ export function useFormValues({
         if (item.type === "void") {
           return transformValue(item.items as FormSchema[], path)
         }
-        const { defaultValue = null } = toRaw(item)
+        const { defaultValue = get(obj, `${path}${item.field}`) } = toRaw(item);
 
         // 给model设置初始值
         set(obj, `${path}${item.field}`, null)
@@ -232,6 +231,5 @@ export function useFormValues({
       formModel[key] = initialFormValue[key]
     })
   }
-
   return { handleFormValues, initDefault }
 }

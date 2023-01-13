@@ -10,7 +10,7 @@ const props = withDefaults(
     headerStyle?: CSSProperties
     collapse?: boolean
     advanced?: boolean
-    iconColor: string
+    iconColor?: string
   }>(),
   {
     collapse: true,
@@ -19,9 +19,7 @@ const props = withDefaults(
   }
 )
 
-const iconColorRef = computed(() =>
-  props.iconColor ? props.iconColor : "#666"
-)
+const iconColorRef = computed(() =>props.iconColor)
 const emits = defineEmits(["expend"])
 
 const prefixCls = "expend"

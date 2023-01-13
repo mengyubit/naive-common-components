@@ -30,7 +30,7 @@
 import Grid from './components/Grid/index'
 import { FormActionType, FormProps, FormSchema } from "./types/form"
 import { AdvanceState } from "./types/hooks"
-import { Ref, markRaw } from "vue"
+import { Ref, markRaw, toRaw } from "vue"
 import {
   defineComponent,
   reactive,
@@ -46,7 +46,7 @@ import moment from "moment"
 import { deepMerge } from "./utils"
 import { useFormValues } from "./hooks/useFormValues"
 import { useFormEvents } from "./hooks/useFormEvents"
-import { createFormContext } from "./hooks/useFormContext"
+import { createFormContext, createIconConfigContext } from "./hooks/useFormContext"
 import { useAutoFocus } from "./hooks/useAutoFocus"
 import { NForm } from "naive-ui"
 import { set } from "lodash-es"
@@ -87,7 +87,6 @@ export default defineComponent({
           formItemElRefs.splice(index, 1);
         } else {
           // 更新时替换
-          console.log('tihuan');
           formItemElRefs.splice(index, 1, el);
         }
       } else {
@@ -256,7 +255,8 @@ export default defineComponent({
       validate,
       submit: handleSubmit,
       initDefault,
-      setLoading
+      setLoading,
+      getCurrentSchema: () => toRaw(getSchema.value)
     }
 
     const getBindValues = computed(() => {
@@ -269,6 +269,10 @@ export default defineComponent({
       return propsData
     })
 
+    const getIconConfig = props.iconStyleConfig
+
+    createIconConfigContext(getIconConfig)
+    
     createFormContext({
       setFormModel,
       formModel,

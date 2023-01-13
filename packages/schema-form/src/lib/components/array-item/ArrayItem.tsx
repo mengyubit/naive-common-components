@@ -183,7 +183,6 @@ const ArrayItemsInner = defineComponent({
     const setArrayFormModel = (type = "push", index = -1) => {
       const cloneArrayValue = cloneDeep(arrayModal.value)
       const cloneArraySchema = cloneDeep(toRaw(itemSchema?.[0] as FormSchema[]))
-
       if (type === "push") {
         cloneArrayValue.push(cloneDeep(createArrayModal(itemSchema?.[0])))
         cloneArrayValue.length > 1 &&
@@ -403,10 +402,10 @@ const ArrayItemsInner = defineComponent({
             >
               <ArrayBase.Remove
                 disabled={unref(minLenDisabled)}
-                iconName="component-remove"
+                iconName="remove"
               ></ArrayBase.Remove>
               <ArrayBase.Addition
-                iconName="component-add"
+                iconName="add"
                 disabled={unref(maxLenDisabled)}
               ></ArrayBase.Addition>
             </GridItem>

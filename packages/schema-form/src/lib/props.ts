@@ -1,4 +1,4 @@
-import { FormSchema } from "./types/form"
+import { FormSchema, IIconConfig } from "./types/form"
 import { CSSProperties, PropType } from "vue"
 import { Recordable } from "./types"
 import { GridProps } from "./components/Grid/index"
@@ -106,5 +106,10 @@ export const basicProps = {
     type: String as PropType<string>
   },
 
-  rowProps: Object as PropType<GridProps>
+  rowProps: Object as PropType<GridProps>,
+
+  iconStyleConfig: {
+     type: [Array] as PropType<IIconConfig[]>,
+     default: () => []
+  }
 }

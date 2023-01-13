@@ -1,4 +1,4 @@
-<!-- 固定宽度的布局demo -->
+<!-- 校验单个field demo -->
 
 <script lang="ts" setup>
 import { onMounted } from 'vue';
@@ -32,6 +32,7 @@ onMounted(() => {
   }, 3000)
 })
 </script>
+
 <template>
   <BasicForm @register="registerForm" :row-props="rowProps" style="width: 800px"/>
   <div>

@@ -1,4 +1,4 @@
-<!-- 固定宽度的布局demo -->
+<!-- 自定义固定宽度的布局demo -->
 
 <script lang="ts" setup>
 import { useForm, BasicForm } from '../../lib/index';

@@ -592,7 +592,6 @@ export default defineComponent({
       }
       const showSuffix = !!suffix
       const getSuffix = isFunction(suffix) ? suffix(unref(getValues)) : suffix
-      console.log('renderItem')
       return (
         <NFormItem
           path={props.path ?? field}

@@ -1,4 +1,4 @@
-import { VNode, CSSProperties, StyleValue, Ref, VNodeChild } from "vue"
+import { VNode, CSSProperties, StyleValue, Ref, VNodeChild, ComputedRef } from "vue"
 import {
   FormRules,
   FormItemRule,
@@ -41,7 +41,8 @@ export type RenderCallbackFn<T> = (
 ) => T
 
 export interface FormActionType {
-  getFormModal: () => Recordable
+  getFormModal: () => Recordable,
+  getCurrentSchema:  () => FormSchema[],
   initDefault: () => void
   submit: <T>() => Promise<T | Recordable>
   setFieldsValue: <T>(values: T) => Promise<void>
@@ -67,7 +68,8 @@ export interface FormActionType {
   appendSchemaByPath: (
     schema: FormSchema | FormSchema[],
     prefixField: string,
-    first?: boolean | undefined
+    first?: boolean | undefined,
+    idx?: number
   ) => Promise<void>
   validateFields: (
     field: string[],
@@ -299,4 +301,14 @@ export type OptionsItem = { label: string; value: string; disabled?: boolean }
 export interface FormSymbol {
   formModal: Recordable
   setFormModel: (arg: Recordable) => void
+}
+
+export interface IIconConfig {
+  name: "add" | "remove" | 'addFull' | 'removeFull',
+  color: string,
+  hoverColor?: string,
+  disableColor?: string,
+  size?: number,
+  showTooltip?: boolean,
+  icon?: () => VNode
 }

@@ -12,7 +12,7 @@ import {
   resolveDirective,
   renderSlot
 } from "vue"
-import { ButtonProps as NButtonProps, useThemeVars } from "naive-ui"
+import { ButtonProps as NButtonProps } from "naive-ui"
 import { NIcon } from "naive-ui"
 import { MoveSharp as ArrowMove } from "@vicons/ionicons5"
 import Collapse from "../collapse/Collapse.vue"
@@ -224,8 +224,6 @@ const ArrayBaseAddition = defineComponent({
     const index = useIndex()
     const { setArrayFormModel } = useFieldModal()
     const prefixCls  = "array-base"
-    const useThemeVar = useThemeVars()
-    const primaryColor = unref(useThemeVar).primaryColor
     return () => {
       if (!array) return null
       const additionClickHandle = (e) => {
@@ -242,16 +240,7 @@ const ArrayBaseAddition = defineComponent({
       }
       return (
         <SvgIcon
-          name='add'
-          size="24"
-          color={
-            props.iconName === "component-add" || props.disabled
-              ? "#999"
-              : primaryColor
-          }
-          hoverColor={
-            props.iconName === "component-add" ? "#999" : primaryColor
-          }
+          name={props.iconName || "addFull"}
           class={[
             `${prefixCls}-addition`,
             {
@@ -274,7 +263,6 @@ const ArrayBaseRemove = defineComponent({
     const base = useArray()
     const prefixCls  = "array-base"
     const array = useArray()
-
     const removeClickHandle = (e: MouseEvent) => {
       if (array?.props?.disabled || props.disabled) return
       e.stopPropagation()
@@ -290,17 +278,8 @@ const ArrayBaseRemove = defineComponent({
     return () => {
       return (
         <SvgIcon
-         name='remove'
+         name={props.iconName || "removeFull"}
           {...props}
-          size="24"
-          color={
-            props.iconName === "component-remove" || props.disabled
-              ? "#999"
-              : "#D92149"
-          }
-          hoverColor={
-            props.iconName === "component-remove" ? "#999" : "#D92149"
-          }
           class={[
             `${prefixCls}-remove`,
             {
